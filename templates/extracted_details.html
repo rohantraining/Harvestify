@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="{{ url_for('home') }}" class="nav__logo">
+                    <i class="ri-leaf-line nav__logo-icon"></i> Harvestify
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="{{ url_for('home') }}" class="nav__link ">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="{{ url_for('fertilizer_recommendation') }}" class="nav__link active-link">Fertilizer</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="{{ url_for('disease_prediction') }}" class="nav__link">Disease</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="{{ url_for('home_community') }}" class="nav__link">Community</a>
+                        </li>
+                        <!-- <li class="nav__item">
+                            <a href="#contact" class="nav__link">Contact Us</a>
+                        </li> -->
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+<!-- 
+____________________yahaaaa pe________________________________ -->
+
+
+<!--Form Section-->
+<section class="contact section container" id="contact">                
+	<div class="contact__container grid">
+		<div class="contact__box">
+			<h2 class="section__title">
+				Hey User <br> Please check <br> the extracted values
+			</h2>
+
+			<div class="contact__data">
+				<div class="contact__information">
+					<h3 class="contact__subtitle">If the details are accurate then <br>please Select a crop and Click confirm </h3>
+				
+				</div>
+
+				
+			</div>
+		</div>
+
+		<form method="POST" action="{{ url_for('fert_recommend') }}" class="contact__form"  >
+			<div class="contact__inputs">
+				<div class="contact__content">
+					<input
+						type="number"
+						class="contact__input"
+						id="Nitrogen"
+						name="nitrogen"
+						value="{{N}}"
+					/>
+					<label for="Nitrogen" class="contact__label">Nitrogen</label>
+				</div>
+
+				<div class="contact__content">
+					<input
+						type="number"
+						class="contact__input"
+						id="Phosphorous"
+						name="phosphorous"
+						value="{{P}}"
+					/>
+					<label for="Phosphorous" class="contact__label">Phosphorous</label>
+				</div>
+
+				<div class="contact__content ">
+					<input
+						type="number"
+						class="contact__input"
+						id="Pottasium"
+						name="pottasium"
+						value="{{K}}"
+					/>
+					<label for="Potassium" class="contact__label">Potassium</label>
+				</div>
+			</div>
+
+			<div class="contact__content contact__areaforfert">
+				<label class="contact__label" for="crop" 
+				  >Crop you want to grow</label
+				>
+				<select
+				  name="cropname"
+				  class="contact__input"
+				  id="crop"
+				  required
+				>
+				<div class="questions__container">
+				  <option selected>Select a crop</option>
+				  <option>rice</option>
+				  <option>maize</option>
+				  <option>chickpea</option>
+				  <option>kidneybeans</option>
+				  <option>pigeonpeas</option>
+				  <option>mothbeans</option>
+				  <option>mungbean</option>
+				  <option>blackgram</option>
+				  <option>lentil</option>
+				  <option>pomegranate</option>
+				  <option>banana</option>
+				  <option>mango</option>
+				  <option>grapes</option>
+				  <option>watermelon</option>
+				  <option>muskmelon</option>
+				  <option>apple</option>
+				  <option>orange</option>
+				  <option>papaya</option>
+				  <option>coconut</option>
+				  <option>cotton</option>
+				  <option>jute</option>
+				  <option>coffee</option>
+				</div>
+				</select>
+			  </div>
+		  <br>
+			<button type="submit" class="button button--flex">
+				Confirm
+				<i class="ri-arrow-right-up-line button__icon"></i>
+			</button>
+			
+		</form>
+	</div>
+</section>
+<!-- fhfhhfhfhffffhhfhfhfh -->
+<a href="#" class="scrollup" id="scroll-up"> 
+	<i class="ri-arrow-up-fill scrollup__icon"></i>
+</a>
+
+<!--=============== SCROLL REVEAL ===============-->
+<script src="{{ url_for('static', filename='js/scrollreveal.min.js') }}"></script>
+
+<!--=============== MAIN JS ===============-->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
